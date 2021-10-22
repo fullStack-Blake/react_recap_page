@@ -9,13 +9,15 @@ class App extends Component {
       count: current.count + 1
     }));
   };
-
+  minus = () => {
+    this.setState(current => ({ count: current.count - 1 }));
+  };
   render() {
     return (
       <>
         <h1>{this.state.count}</h1>
         <button onClick={this.add}>ADD</button>
-        <button>MINUS</button>
+        <button onClick={this.minus}>MINUS</button>
       </>
     );
   }
