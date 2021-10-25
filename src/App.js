@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Brewery from "./Brewery";
 
 class App extends Component {
   state = {
@@ -16,7 +17,6 @@ class App extends Component {
       "https://api.openbrewerydb.org/breweries"
     );
     this.setState({ breweryList, isLoading: false });
-    console.log(breweryList);
   };
   componentDidMount() {
     this.getBrewery();
@@ -27,7 +27,25 @@ class App extends Component {
 
   render() {
     const { isLoading, breweryList } = this.state;
-    return <>{isLoading ? <h3>Loading...</h3> : <p></p>}</>;
+    return (
+      <>
+        <div>
+          {isLoading
+            ? "Loading..."
+            : breweryList.map(brewery => (
+                <Brewery
+                  key={brewery.id}
+                  name={brewery.name}
+                  street={brewery.street}
+                  city={brewery.city}
+                  state={brewery.state}
+                  phone={brewery.phone}
+                  website={brewery.website_url}
+                />
+              ))}
+        </div>
+      </>
+    );
   }
 }
 
