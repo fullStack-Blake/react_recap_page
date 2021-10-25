@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Brewery from "./Brewery";
+import Brewery from "../components/Brewery";
 
-class App extends Component {
+class Home extends Component {
   state = {
     isLoading: true,
     breweryList: []
@@ -46,4 +46,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;
