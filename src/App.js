@@ -22,9 +22,6 @@ class App extends Component {
     this.getBrewery();
     this.setState({ isLoading: false });
   }
-  componentDidUpdate() {}
-  componentWillUnmount() {}
-
   render() {
     const { isLoading, breweryList } = this.state;
     return (
