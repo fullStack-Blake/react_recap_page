@@ -1,40 +1,33 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class App extends Component {
+  state = {
+    isLoading: true,
+    breweryList: []
+  };
+
   constructor(props) {
     super(props);
     console.log("Constructed!");
   }
+  getBrewery = async () => {
+    const { data: breweryList } = await axios.get(
+      "https://api.openbrewerydb.org/breweries"
+    );
+    this.setState({ breweryList, isLoading: false });
+    console.log(breweryList);
+  };
   componentDidMount() {
-    console.log("1");
+    this.getBrewery();
+    this.setState({ isLoading: false });
   }
-  componentDidUpdate() {
-    console.log("2");
-  }
-  componentWillUnmount() {
-    console.log("Bye");
-  }
-  state = {
-    count: 0
-  };
-  add = () => {
-    this.setState(current => ({
-      count: current.count + 1
-    }));
-  };
-  minus = () => {
-    this.setState(current => ({ count: current.count - 1 }));
-  };
+  componentDidUpdate() {}
+  componentWillUnmount() {}
 
   render() {
-    console.log("Rendering!");
-    return (
-      <>
-        <h1>{this.state.count}</h1>
-        <button onClick={this.add}>ADD</button>
-        <button onClick={this.minus}>MINUS</button>
-      </>
-    );
+    const { isLoading, breweryList } = this.state;
+    return <>{isLoading ? <h3>Loading...</h3> : <p></p>}</>;
   }
 }
 
