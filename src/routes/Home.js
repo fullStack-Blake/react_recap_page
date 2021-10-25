@@ -38,6 +38,7 @@ class Home extends Component {
                   state={brewery.state}
                   phone={brewery.phone}
                   website={brewery.website_url}
+                  type={brewery.brewery_type}
                 />
               ))}
         </div>
