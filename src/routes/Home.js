@@ -1,6 +1,23 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Brewery from "../components/Brewery";
+import styled from "styled-components";
+
+const Breweries = styled.div`
+  padding-top: 5vh;
+  margin-left: 10vw;
+  width: 90vw;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  
+  .brewery:nth-child(odd){
+    background-color: blue;
+  }
+  .brewery:nth-child(even){
+    background-color: black;
+  }
+`
 
 class Home extends Component {
   state = {
@@ -26,10 +43,11 @@ class Home extends Component {
     const { isLoading, breweryList } = this.state;
     return (
       <>
-        <div>
+
           {isLoading
-            ? "Loading..."
-            : breweryList.map(brewery => (
+            ? <div className="loading">Loading...</div>
+            : <Breweries>
+             { breweryList.map(brewery => (
                 <Brewery
                   key={brewery.id}
                   name={brewery.name}
@@ -41,7 +59,8 @@ class Home extends Component {
                   type={brewery.brewery_type}
                 />
               ))}
-        </div>
+             </Breweries> } 
+
       </>
     );
   }

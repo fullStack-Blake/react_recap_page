@@ -3,33 +3,54 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Main = styled.div`
-  margin-left: 12em;
-  width: 100%;
-  display: flex;
-  flex-wrap:wrap;
+  width: 25em;
+  padding: 1em;
 `
 const Card = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  margin-bottom: 2em;
 `
-const Name = styled.h2``;
+const Name = styled.h2`
+  font-size: 1.5em;
+  font-weight: 300;
+
+`;
 const Location = styled.h4``;
 const Phone = styled.p``;
-const Website = styled.a``;
+const Website = styled.a`
+  text-decoration: none;
+  :visited, :link{
+    color: white;
+  }
+`;
 
 const Brewery = ({ name, street, city, state, phone, website }) => {
   return (
-    <Main>
+    <>
+  {website? 
+    <Main className="brewery">
+  <Website href={website} target="_blank" >
     <Card>
       <Name>{name}</Name>
       <Location>
         {street}, {city}
       </Location>
       <Phone>{phone}</Phone>
-      <Website>{website}</Website>
     </Card>
+    </Website> 
     </Main>
+    : 
+    <Main className="brewery">
+    <Card>
+      <Name>{name}</Name>
+      <Location>
+        {street}, {city}
+      </Location>
+      <Phone>{phone}</Phone>
+    </Card>
+    </Main>}    
+    </>
   );
 };
 

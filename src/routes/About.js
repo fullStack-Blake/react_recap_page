@@ -1,12 +1,19 @@
 import React from 'react';
 import styled from 'styled-components'
 
+const Box = styled.div`
+    margin-left: 10vw;
+    padding-top: 5vh;
+    top: 2em;
+`
 const Heading = styled.h2``
-const Explanation = styled.p``
+const Explanation = styled.p`
+    width: 60%;
+`
 
 
 const About = () => (
-    <>
+    <Box>
         <Heading>
             Brewery List Page
         </Heading>
@@ -16,7 +23,7 @@ const About = () => (
         Since this list provides local to large brewing company, some of the brewery does not have enough information.
         Please support your local brewery and ENJOY!
     </Explanation>
-    </>
+    </Box>
 )
 
 export default About

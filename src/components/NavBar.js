@@ -5,25 +5,26 @@ import styled from 'styled-components'
 
 const Side = styled.div`
     position: fixed;
-    top: 4em;
-    left : 1em;
+    top: 2em;
     display: flex;
-    flex-direction:column;
-    flex-wrap:wrap;
-    padding: 0.6em 1em;
-    background-color: white;
-    border-radius: 5px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 10vw;
+    min-width: 120px;
+    text-align: center;
     a{
         text-decoration: none;
-        color: #0008fc;
-        text-transform: uppercase;
-        font-size: 1em;
-        text-align: center;
-        font-weight: 600;
+        font-weight: 300;
+        margin-top: 1em;
+        border-radius: 5px;
+
     }
-    a:not(:last-child) {
-  margin-bottom: 20px;
-}
+    a:visited{
+        color: white;
+
+    }
+
 `
 
 const NavBar = () => (
