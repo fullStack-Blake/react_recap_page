@@ -9,11 +9,11 @@ const Back = styled.div`
     background-color: rgb(23,23,27);
     color: white;
     height: 100vh;
-    @media only screen and (max-width: 1335px) {
-        height: 150vh;
+    @media only screen and (max-width: 1500px) {
+        height: 200vh;
     }
     @media only screen and (max-width: 875px) {
-        height: 250vh;
+        height: 350vh;
     }
 `
 
